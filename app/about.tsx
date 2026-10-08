@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
+import { Colors } from "../constants/colors";
 
 const About = () => {
+  const colorScheme = useColorScheme();
+  const theme = colorScheme === "dark" ? Colors.dark : Colors.light;
   return (
-    <View style={styles.container}>
-      <Text style={styles.tile}>About Page</Text>
-      <Link href="/" style={styles.link}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Text style={[styles.title, { color: theme.title }]}>About Page</Text>
+      <Link href="/" style={[styles.link, { color: theme.text }]}>
         Home
       </Link>
     </View>
@@ -21,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  tile: {
+  title: {
     fontWeight: "bold",
     fontSize: 18,
   },

@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, useColorScheme } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
+import { Colors } from "../constants/colors";
+import ThemedView from "../components/ThemedView";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       <Image
         source={require("../assets/splash-icon.png")}
         style={styles.image}
@@ -18,7 +20,7 @@ const Home = () => {
       <Link href="/contact" style={styles.link}>
         Contact
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 
